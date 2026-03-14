@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World Cup Budget Calculator</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:Inter;
-background:#f4f6fb;
+font-family: Arial, Helvetica, sans-serif;
+background:#0b1b34;
 margin:0;
-color:#1e293b;
+color:#222;
 }
 
 header{
-background:#0f172a;
-color:white;
 text-align:center;
-padding:70px 20px;
+padding:60px 20px;
+color:white;
 }
 
 header h1{
-font-size:36px;
+font-size:40px;
 margin-bottom:10px;
 }
 
@@ -40,102 +36,69 @@ padding:20px;
 background:white;
 padding:30px;
 border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .calculator h2{
 margin-top:0;
 }
 
-input{
+input,select{
 width:100%;
 padding:14px;
-margin:8px 0;
+margin-top:10px;
+margin-bottom:15px;
 border-radius:8px;
-border:1px solid #ddd;
+border:1px solid #ccc;
 font-size:16px;
 }
 
 button{
 width:100%;
-padding:16px;
-margin-top:10px;
+padding:15px;
+border:none;
 background:#22c55e;
 color:white;
-border:none;
+font-size:18px;
 border-radius:8px;
-font-size:16px;
-font-weight:600;
 cursor:pointer;
 }
 
+button:hover{
+background:#16a34a;
+}
+
 .result{
-text-align:center;
-font-size:34px;
-font-weight:700;
 margin-top:20px;
-}
-
-.section{
-margin-top:60px;
+font-size:24px;
+font-weight:bold;
 text-align:center;
-}
-
-.section input{
-max-width:350px;
-}
-
-.cards{
-margin-top:30px;
-display:grid;
-grid-template-columns:1fr;
-gap:20px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 6px 20px rgba(0,0,0,0.1);
-}
-
-.card a{
-text-decoration:none;
-font-weight:600;
-color:#2563eb;
-}
-
-footer{
-margin-top:60px;
-background:#0f172a;
-color:white;
-text-align:center;
-padding:30px;
 }
 
 </style>
-
 </head>
+
 
 <body>
 
 <header>
-
 <h1>World Cup Budget Calculator</h1>
-
-<p>Plan the real cost of attending the FIFA World Cup</p>
-
+<p>Estimate the real cost of attending the FIFA World Cup</p>
 </header>
+
 
 <div class="container">
 
 <div class="calculator">
 
 <h2>Estimate Your Trip Cost</h2>
+
 <label>Select Host City</label>
+
 <select id="city" onchange="setCityCost()">
 
 <option value="">Choose a city</option>
+
 <option value="newyork">New York</option>
 <option value="losangeles">Los Angeles</option>
 <option value="dallas">Dallas</option>
@@ -145,7 +108,7 @@ padding:30px;
 <option value="boston">Boston</option>
 <option value="philadelphia">Philadelphia</option>
 <option value="seattle">Seattle</option>
-<option value="sanfrancisco">San Francisco Bay Area</option>
+<option value="sanfrancisco">San Francisco</option>
 <option value="kansascity">Kansas City</option>
 
 <option value="toronto">Toronto</option>
@@ -155,8 +118,9 @@ padding:30px;
 <option value="guadalajara">Guadalajara</option>
 <option value="monterrey">Monterrey</option>
 
-
 </select>
+
+
 <input id="flight" type="number" placeholder="Flights ($)">
 <input id="hotel" type="number" placeholder="Hotel per night ($)">
 <input id="nights" type="number" placeholder="Number of nights">
@@ -170,50 +134,8 @@ padding:30px;
 
 </div>
 
-<div class="section">
-
-<h2>Free World Cup Budget Guide</h2>
-
-<p>Learn how fans attend the World Cup for under $2000.</p>
-
-<input type="email" placeholder="Enter your email">
-
-<button>Download Guide</button>
-
 </div>
 
-<div class="section">
-
-<h2>Best Deals for World Cup Travel</h2>
-
-<div class="cards">
-
-<div class="card">
-<a href="#">Cheap Flights</a>
-<p>Find lowest international flights</p>
-</div>
-
-<div class="card">
-<a href="#">Hotel Deals</a>
-<p>Compare host city hotels</p>
-</div>
-
-<div class="card">
-<a href="#">Match Tickets</a>
-<p>Buy verified tickets</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>World Cup Budget Calculator</p>
-
-</footer>
 
 <script>
 
@@ -232,9 +154,12 @@ document.getElementById("total").innerHTML = "$" + total;
 
 }
 
+
+
 function setCityCost(){
 
 const prices = {
+
 newyork:{flight:900,hotel:350,ticket:250,food:120},
 losangeles:{flight:850,hotel:300,ticket:240,food:110},
 dallas:{flight:800,hotel:220,ticket:210,food:90},
@@ -245,22 +170,32 @@ boston:{flight:880,hotel:260,ticket:230,food:100},
 philadelphia:{flight:860,hotel:250,ticket:220,food:95},
 seattle:{flight:900,hotel:270,ticket:240,food:110},
 sanfrancisco:{flight:950,hotel:320,ticket:260,food:120},
-kansascity:{flight:720,hotel:180,ticket:200,food:85},
+kansascity:{flight:720,hotel:180,ticket:200,food:80},
+
 toronto:{flight:700,hotel:280,ticket:230,food:100},
 vancouver:{flight:750,hotel:260,ticket:220,food:95},
+
 mexicocity:{flight:500,hotel:120,ticket:180,food:60},
 guadalajara:{flight:520,hotel:110,ticket:170,food:55},
-monterrey:{flight:540,hotel:120,ticket:180,food:70}
+monterrey:{flight:540,hotel:120,ticket:180,food:60}
+
 };
 
 let city = document.getElementById("city").value;
 
 if(prices[city]){
+
 document.getElementById("flight").value = prices[city].flight;
 document.getElementById("hotel").value = prices[city].hotel;
 document.getElementById("ticket").value = prices[city].ticket;
 document.getElementById("food").value = prices[city].food;
-}
+
 }
 
+}
 
+</script>
+
+
+</body>
+</html>
