@@ -242,31 +242,25 @@ houston:{flight:780,hotel:200,ticket:210,food:85},
 miami:{flight:820,hotel:300,ticket:240,food:110},
 atlanta:{flight:750,hotel:250,ticket:220,food:90},
 boston:{flight:880,hotel:260,ticket:230,food:100},
-philadelphia:{flight:860,hotel:250,ticket:230,food:95},
-seattle:{flight:900,hotel:270,ticket:240,food:100},
-sanfrancisco:{flight:950,hotel:320,ticket:250,food:120},
-kansascity:{flight:720,hotel:180,ticket:200,food:80},
+philadelphia:{flight:860,hotel:250,ticket:220,food:95},
+seattle:{flight:900,hotel:270,ticket:240,food:110},
+sanfrancisco:{flight:950,hotel:320,ticket:260,food:120},
+kansascity:{flight:720,hotel:180,ticket:200,food:85},
 toronto:{flight:700,hotel:280,ticket:230,food:100},
 vancouver:{flight:750,hotel:260,ticket:220,food:95},
 mexicocity:{flight:500,hotel:120,ticket:180,food:60},
 guadalajara:{flight:520,hotel:110,ticket:170,food:55},
-monterrey:{flight:540,hotel:120,ticket:180,food:60}
+monterrey:{flight:540,hotel:120,ticket:180,food:70}
 };
 
-let city = document.getElementById(“city”).value;
+let city = document.getElementById("city").value;
 
 if(prices[city]){
-document.getElementById(“flight”).value = prices[city].flight;
-document.getElementById(“hotel”).value = prices[city].hotel;
-document.getElementById(“ticket”).value = prices[city].ticket;
-document.getElementById(“food”).value = prices[city].food;
+document.getElementById("flight").value = prices[city].flight;
+document.getElementById("hotel").value = prices[city].hotel;
+document.getElementById("ticket").value = prices[city].ticket;
+document.getElementById("food").value = prices[city].food;
 }
-
 }
-
-
-</script>
-
-
 
 
