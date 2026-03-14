@@ -3,11 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>World Cup Budget Calculator 2026</title>
 
-<meta name="description" content="Estimate the cost of attending the 2026 FIFA World Cup across all host cities.">
+<meta name="description" content="Calculate the cost of attending the FIFA World Cup 2026. Estimate flights, hotels and ticket expenses across host cities.">
 
 <style>
 
@@ -25,12 +25,12 @@ color:white;
 }
 
 header h1{
-font-size:42px;
+font-size:40px;
 margin-bottom:10px;
 }
 
 .container{
-max-width:700px;
+max-width:720px;
 margin:auto;
 padding:20px;
 }
@@ -79,13 +79,10 @@ font-weight:bold;
 text-align:center;
 }
 
-.emailbox{
+.lead-form{
 display:flex;
+flex-direction:column;
 gap:10px;
-}
-
-.emailbox input{
-flex:1;
 }
 
 .product{
@@ -101,6 +98,17 @@ background:#2563eb;
 
 .product button:hover{
 background:#1d4ed8;
+}
+
+.subscription{
+border:2px solid #22c55e;
+padding:25px;
+border-radius:12px;
+text-align:center;
+}
+
+.subscription button{
+background:#22c55e;
 }
 
 .ad{
@@ -188,17 +196,44 @@ color:white;
 
 <h2>Free World Cup Budget Guide</h2>
 
-<p>Enter your email to get the free guide.</p>
+<p>Join our email list and get the free planning guide.</p>
 
-<div class="emailbox">
+<form class="lead-form" onsubmit="captureLead(event)">
 
-<input id="email" type="email" placeholder="Enter your email">
+<input id="email" type="email" placeholder="Enter your email" required>
 
-<button onclick="captureLead()">Get Guide</button>
+<button type="submit">Get Free Guide</button>
+
+</form>
+
+<p id="leadmsg"></p>
 
 </div>
 
-<p id="leadmsg"></p>
+
+
+<div class="card subscription">
+
+<h2>Premium World Cup Planner</h2>
+
+<p>
+
+Get advanced features:
+
+✔ Full travel planner  
+✔ Match schedule tracker  
+✔ Premium budget tools  
+✔ Stadium guides  
+
+</p>
+
+<h3>$9 / month</h3>
+
+<a href="https://gumroad.com" target="_blank">
+
+<button>Upgrade to Premium</button>
+
+</a>
 
 </div>
 
@@ -212,10 +247,12 @@ color:white;
 
 <h3>World Cup Travel Planner</h3>
 
-<p>Plan your entire trip including stadiums, hotels and match schedules.</p>
+<p>Complete planning toolkit for fans attending the World Cup.</p>
 
 <a href="https://gumroad.com" target="_blank">
+
 <button>Buy Now</button>
+
 </a>
 
 </div>
@@ -224,10 +261,12 @@ color:white;
 
 <h3>World Cup Budget Spreadsheet</h3>
 
-<p>Track all travel expenses and match costs easily.</p>
+<p>Track travel expenses and ticket costs easily.</p>
 
 <a href="https://gumroad.com" target="_blank">
+
 <button>Download</button>
+
 </a>
 
 </div>
@@ -241,15 +280,21 @@ color:white;
 <h2>Book Your Trip</h2>
 
 <a href="https://www.skyscanner.com" target="_blank">
+
 <button>Find Flights</button>
+
 </a>
 
 <a href="https://www.booking.com" target="_blank">
+
 <button>Find Hotels</button>
+
 </a>
 
 <a href="https://www.stubhub.com" target="_blank">
+
 <button>Buy Match Tickets</button>
+
 </a>
 
 </div>
@@ -259,24 +304,6 @@ color:white;
 <div class="ad">
 
 Google AdSense Ad Placement
-
-</div>
-
-
-
-<div class="card">
-
-<h2>World Cup Travel Tips</h2>
-
-<p>
-
-Attending the FIFA World Cup is one of the most exciting experiences for football fans. Travel costs vary depending on the host city, length of stay and ticket demand.
-
-Flights, accommodation and food expenses often represent the largest costs for fans traveling internationally.
-
-This calculator helps estimate the cost of attending matches in cities like New York, Los Angeles, Dallas, Toronto and Mexico City.
-
-</p>
 
 </div>
 
@@ -313,19 +340,21 @@ document.getElementById("total").innerHTML = "$" + total;
 
 
 
-function captureLead(){
+function captureLead(event){
 
-let email = document.getElementById("email").value;
+event.preventDefault()
+
+let email = document.getElementById("email").value
 
 if(email){
 
-let leads = JSON.parse(localStorage.getItem("wc_leads") || "[]");
+let leads = JSON.parse(localStorage.getItem("wc_leads") || "[]")
 
-leads.push(email);
+leads.push(email)
 
-localStorage.setItem("wc_leads",JSON.stringify(leads));
+localStorage.setItem("wc_leads",JSON.stringify(leads))
 
-document.getElementById("leadmsg").innerHTML="Thanks! Check your email.";
+document.getElementById("leadmsg").innerHTML="Success! Guide sent."
 
 }
 
@@ -335,7 +364,7 @@ document.getElementById("leadmsg").innerHTML="Thanks! Check your email.";
 
 function setCityCost(){
 
-const prices = {
+const prices={
 
 newyork:{flight:900,hotel:350,ticket:250,food:120},
 losangeles:{flight:850,hotel:300,ticket:240,food:110},
@@ -356,22 +385,23 @@ mexicocity:{flight:500,hotel:120,ticket:180,food:60},
 guadalajara:{flight:520,hotel:110,ticket:170,food:55},
 monterrey:{flight:540,hotel:120,ticket:180,food:60}
 
-};
+}
 
-let city=document.getElementById("city").value;
+let city=document.getElementById("city").value
 
 if(prices[city]){
 
-document.getElementById("flight").value=prices[city].flight;
-document.getElementById("hotel").value=prices[city].hotel;
-document.getElementById("ticket").value=prices[city].ticket;
-document.getElementById("food").value=prices[city].food;
+document.getElementById("flight").value=prices[city].flight
+document.getElementById("hotel").value=prices[city].hotel
+document.getElementById("ticket").value=prices[city].ticket
+document.getElementById("food").value=prices[city].food
 
 }
 
 }
 
 </script>
+
 
 </body>
 </html>
