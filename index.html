@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Cup Budget Calculator</title>
+
+<title>World Cup Budget Calculator 2026</title>
+
+<meta name="description" content="Estimate the cost of attending the 2026 FIFA World Cup across all host cities.">
 
 <style>
 
 body{
-font-family: Arial, Helvetica, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#0b1b34;
 margin:0;
 color:#222;
@@ -22,24 +25,25 @@ color:white;
 }
 
 header h1{
-font-size:40px;
+font-size:42px;
 margin-bottom:10px;
 }
 
 .container{
-max-width:600px;
+max-width:700px;
 margin:auto;
 padding:20px;
 }
 
-.calculator{
+.card{
 background:white;
 padding:30px;
 border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+margin-bottom:30px;
 }
 
-.calculator h2{
+h2{
 margin-top:0;
 }
 
@@ -55,7 +59,7 @@ font-size:16px;
 
 button{
 width:100%;
-padding:15px;
+padding:16px;
 border:none;
 background:#22c55e;
 color:white;
@@ -70,26 +74,71 @@ background:#16a34a;
 
 .result{
 margin-top:20px;
-font-size:24px;
+font-size:28px;
 font-weight:bold;
 text-align:center;
 }
 
+.emailbox{
+display:flex;
+gap:10px;
+}
+
+.emailbox input{
+flex:1;
+}
+
+.product{
+border:1px solid #eee;
+padding:20px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.product button{
+background:#2563eb;
+}
+
+.product button:hover{
+background:#1d4ed8;
+}
+
+.ad{
+margin:30px 0;
+text-align:center;
+padding:20px;
+background:#f1f1f1;
+border-radius:8px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:white;
+}
+
 </style>
+
 </head>
+
 
 
 <body>
 
 <header>
+
 <h1>World Cup Budget Calculator</h1>
-<p>Estimate the real cost of attending the FIFA World Cup</p>
+<p>Estimate the real cost of attending the FIFA World Cup 2026</p>
+
 </header>
+
 
 
 <div class="container">
 
-<div class="calculator">
+
+
+<div class="card">
 
 <h2>Estimate Your Trip Cost</h2>
 
@@ -120,7 +169,6 @@ text-align:center;
 
 </select>
 
-
 <input id="flight" type="number" placeholder="Flights ($)">
 <input id="hotel" type="number" placeholder="Hotel per night ($)">
 <input id="nights" type="number" placeholder="Number of nights">
@@ -134,7 +182,116 @@ text-align:center;
 
 </div>
 
+
+
+<div class="card">
+
+<h2>Free World Cup Budget Guide</h2>
+
+<p>Enter your email to get the free guide.</p>
+
+<div class="emailbox">
+
+<input id="email" type="email" placeholder="Enter your email">
+
+<button onclick="captureLead()">Get Guide</button>
+
 </div>
+
+<p id="leadmsg"></p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>World Cup Digital Products</h2>
+
+<div class="product">
+
+<h3>World Cup Travel Planner</h3>
+
+<p>Plan your entire trip including stadiums, hotels and match schedules.</p>
+
+<a href="https://gumroad.com" target="_blank">
+<button>Buy Now</button>
+</a>
+
+</div>
+
+<div class="product">
+
+<h3>World Cup Budget Spreadsheet</h3>
+
+<p>Track all travel expenses and match costs easily.</p>
+
+<a href="https://gumroad.com" target="_blank">
+<button>Download</button>
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Book Your Trip</h2>
+
+<a href="https://www.skyscanner.com" target="_blank">
+<button>Find Flights</button>
+</a>
+
+<a href="https://www.booking.com" target="_blank">
+<button>Find Hotels</button>
+</a>
+
+<a href="https://www.stubhub.com" target="_blank">
+<button>Buy Match Tickets</button>
+</a>
+
+</div>
+
+
+
+<div class="ad">
+
+Google AdSense Ad Placement
+
+</div>
+
+
+
+<div class="card">
+
+<h2>World Cup Travel Tips</h2>
+
+<p>
+
+Attending the FIFA World Cup is one of the most exciting experiences for football fans. Travel costs vary depending on the host city, length of stay and ticket demand.
+
+Flights, accommodation and food expenses often represent the largest costs for fans traveling internationally.
+
+This calculator helps estimate the cost of attending matches in cities like New York, Los Angeles, Dallas, Toronto and Mexico City.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+
+<p>World Cup Budget Calculator</p>
+
+</footer>
+
 
 
 <script>
@@ -151,6 +308,26 @@ let days = Number(document.getElementById("days").value);
 let total = flight + (hotel * nights) + ticket + (food * days);
 
 document.getElementById("total").innerHTML = "$" + total;
+
+}
+
+
+
+function captureLead(){
+
+let email = document.getElementById("email").value;
+
+if(email){
+
+let leads = JSON.parse(localStorage.getItem("wc_leads") || "[]");
+
+leads.push(email);
+
+localStorage.setItem("wc_leads",JSON.stringify(leads));
+
+document.getElementById("leadmsg").innerHTML="Thanks! Check your email.";
+
+}
 
 }
 
@@ -181,21 +358,20 @@ monterrey:{flight:540,hotel:120,ticket:180,food:60}
 
 };
 
-let city = document.getElementById("city").value;
+let city=document.getElementById("city").value;
 
 if(prices[city]){
 
-document.getElementById("flight").value = prices[city].flight;
-document.getElementById("hotel").value = prices[city].hotel;
-document.getElementById("ticket").value = prices[city].ticket;
-document.getElementById("food").value = prices[city].food;
+document.getElementById("flight").value=prices[city].flight;
+document.getElementById("hotel").value=prices[city].hotel;
+document.getElementById("ticket").value=prices[city].ticket;
+document.getElementById("food").value=prices[city].food;
 
 }
 
 }
 
 </script>
-
 
 </body>
 </html>
