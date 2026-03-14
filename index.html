@@ -234,125 +234,37 @@ document.getElementById("total").innerHTML = "$" + total;
 
 function setCityCost(){
 
-let city = document.getElementById("city").value;
-
-function setCityCost(){
+const prices = {
+newyork:{flight:900,hotel:350,ticket:250,food:120},
+losangeles:{flight:850,hotel:300,ticket:240,food:110},
+dallas:{flight:800,hotel:220,ticket:210,food:90},
+houston:{flight:780,hotel:200,ticket:210,food:85},
+miami:{flight:820,hotel:300,ticket:240,food:110},
+atlanta:{flight:750,hotel:250,ticket:220,food:90},
+boston:{flight:880,hotel:260,ticket:230,food:100},
+philadelphia:{flight:860,hotel:250,ticket:230,food:95},
+seattle:{flight:900,hotel:270,ticket:240,food:100},
+sanfrancisco:{flight:950,hotel:320,ticket:250,food:120},
+kansascity:{flight:720,hotel:180,ticket:200,food:80},
+toronto:{flight:700,hotel:280,ticket:230,food:100},
+vancouver:{flight:750,hotel:260,ticket:220,food:95},
+mexicocity:{flight:500,hotel:120,ticket:180,food:60},
+guadalajara:{flight:520,hotel:110,ticket:170,food:55},
+monterrey:{flight:540,hotel:120,ticket:180,food:60}
+};
 
 let city = document.getElementById(“city”).value;
 
-if(city === “newyork”){
-document.getElementById(“flight”).value = 900;
-document.getElementById(“hotel”).value = 350;
-document.getElementById(“ticket”).value = 250;
-document.getElementById(“food”).value = 120;
-}
-
-if(city === “losangeles”){
-document.getElementById(“flight”).value = 850;
-document.getElementById(“hotel”).value = 300;
-document.getElementById(“ticket”).value = 240;
-document.getElementById(“food”).value = 110;
-}
-
-if(city === “dallas”){
-document.getElementById(“flight”).value = 800;
-document.getElementById(“hotel”).value = 220;
-document.getElementById(“ticket”).value = 210;
-document.getElementById(“food”).value = 90;
-}
-
-if(city === “houston”){
-document.getElementById(“flight”).value = 780;
-document.getElementById(“hotel”).value = 200;
-document.getElementById(“ticket”).value = 210;
-document.getElementById(“food”).value = 85;
-}
-
-if(city === “miami”){
-document.getElementById(“flight”).value = 820;
-document.getElementById(“hotel”).value = 300;
-document.getElementById(“ticket”).value = 240;
-document.getElementById(“food”).value = 110;
-}
-
-if(city === “atlanta”){
-document.getElementById(“flight”).value = 750;
-document.getElementById(“hotel”).value = 250;
-document.getElementById(“ticket”).value = 220;
-document.getElementById(“food”).value = 90;
-}
-
-if(city === “boston”){
-document.getElementById(“flight”).value = 880;
-document.getElementById(“hotel”).value = 260;
-document.getElementById(“ticket”).value = 230;
-document.getElementById(“food”).value = 100;
-}
-
-if(city === “philadelphia”){
-document.getElementById(“flight”).value = 860;
-document.getElementById(“hotel”).value = 250;
-document.getElementById(“ticket”).value = 230;
-document.getElementById(“food”).value = 95;
-}
-
-if(city === “seattle”){
-document.getElementById(“flight”).value = 900;
-document.getElementById(“hotel”).value = 270;
-document.getElementById(“ticket”).value = 240;
-document.getElementById(“food”).value = 100;
-}
-
-if(city === “sanfrancisco”){
-document.getElementById(“flight”).value = 950;
-document.getElementById(“hotel”).value = 320;
-document.getElementById(“ticket”).value = 250;
-document.getElementById(“food”).value = 120;
-}
-
-if(city === “kansascity”){
-document.getElementById(“flight”).value = 720;
-document.getElementById(“hotel”).value = 180;
-document.getElementById(“ticket”).value = 200;
-document.getElementById(“food”).value = 80;
-}
-
-if(city === “toronto”){
-document.getElementById(“flight”).value = 700;
-document.getElementById(“hotel”).value = 280;
-document.getElementById(“ticket”).value = 230;
-document.getElementById(“food”).value = 100;
-}
-
-if(city === “vancouver”){
-document.getElementById(“flight”).value = 750;
-document.getElementById(“hotel”).value = 260;
-document.getElementById(“ticket”).value = 220;
-document.getElementById(“food”).value = 95;
-}
-
-if(city === “mexicocity”){
-document.getElementById(“flight”).value = 500;
-document.getElementById(“hotel”).value = 120;
-document.getElementById(“ticket”).value = 180;
-document.getElementById(“food”).value = 60;
-}
-
-if(city === “guadalajara”){
-document.getElementById(“flight”).value = 520;
-document.getElementById(“hotel”).value = 110;
-document.getElementById(“ticket”).value = 170;
-document.getElementById(“food”).value = 55;
-}
-
-if(city === “monterrey”){
-document.getElementById(“flight”).value = 540;
-document.getElementById(“hotel”).value = 120;
-document.getElementById(“ticket”).value = 180;
-document.getElementById(“food”).value = 60;
+if(prices[city]){
+document.getElementById(“flight”).value = prices[city].flight;
+document.getElementById(“hotel”).value = prices[city].hotel;
+document.getElementById(“ticket”).value = prices[city].ticket;
+document.getElementById(“food”).value = prices[city].food;
 }
 
 }
+
+
 </script>
 
 
