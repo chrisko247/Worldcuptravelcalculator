@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Cost to Attend the World Cup in Dallas (2026 Budget Guide)</title>
+
+<meta name="description" content="Estimate the cost of attending the FIFA World Cup 2026 in Dallas. Calculate flights, hotels, tickets and daily expenses.">
+
+<style>
+
+body{
+font-family:Arial;
+background:#0b1b34;
+margin:0;
+color:#222;
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+color:white;
+}
+
+.container{
+max-width:720px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+margin-bottom:30px;
+}
+
+input,select{
+width:100%;
+padding:14px;
+margin-top:10px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+background:#22c55e;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+font-size:28px;
+text-align:center;
+margin-top:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>World Cup Dallas Travel Cost</h1>
+
+<p>Estimate the cost of attending the FIFA World Cup 2026 in Dallas.</p>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Dallas World Cup Budget Calculator</h2>
+
+<input id="flight" type="number" placeholder="Flights ($)">
+<input id="hotel" type="number" placeholder="Hotel per night ($)">
+<input id="nights" type="number" placeholder="Number of nights">
+<input id="ticket" type="number" placeholder="Match tickets ($)">
+<input id="food" type="number" placeholder="Food per day ($)">
+<input id="days" type="number" placeholder="Days">
+
+<button onclick="calculate()">Calculate Budget</button>
+
+<div class="result" id="total">$0</div>
+
+</div>
+
+<div class="card">
+
+<h2>Travel Tips for Dallas World Cup</h2>
+
+<p>
+Dallas will host several matches during the 2026 FIFA World Cup. 
+Fans traveling to Dallas should plan their budget carefully, including flights, hotels, tickets and daily expenses.
+</p>
+
+<p>
+Hotels near AT&T Stadium may sell out quickly. Booking early can help reduce costs.
+</p>
+
+<p>
+Flights into Dallas Fort Worth International Airport are usually the most convenient option for international travelers.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Book Your Trip</h2>
+
+<a href="https://www.skyscanner.com" target="_blank">
+<button>Find Flights</button>
+</a>
+
+<a href="https://www.booking.com" target="_blank">
+<button>Find Hotels</button>
+</a>
+
+<a href="https://www.stubhub.com" target="_blank">
+<button>Buy Match Tickets</button>
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let flight = Number(document.getElementById("flight").value);
+let hotel = Number(document.getElementById("hotel").value);
+let nights = Number(document.getElementById("nights").value);
+let ticket = Number(document.getElementById("ticket").value);
+let food = Number(document.getElementById("food").value);
+let days = Number(document.getElementById("days").value);
+
+let total = flight + (hotel * nights) + ticket + (food * days);
+
+document.getElementById("total").innerHTML="$"+total;
+
+}
+
+</script>
+
+</body>
+
+</html>
