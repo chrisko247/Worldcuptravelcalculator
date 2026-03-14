@@ -132,7 +132,23 @@ padding:30px;
 <div class="calculator">
 
 <h2>Estimate Your Trip Cost</h2>
+<label>Select Host City</label>
 
+<select id="city" onchange="setCityCost()">
+
+<option value="">Choose a city</option>
+
+<option value="newyork">New York</option>
+
+<option value="losangeles">Los Angeles</option>
+
+<option value="mexicocity">Mexico City</option>
+
+<option value="toronto">Toronto</option>
+
+<option value="atlanta">Atlanta</option>
+
+</select>
 <input id="flight" type="number" placeholder="Flights ($)">
 <input id="hotel" type="number" placeholder="Hotel per night ($)">
 <input id="nights" type="number" placeholder="Number of nights">
@@ -202,14 +218,55 @@ let ticket = Number(document.getElementById("ticket").value);
 let food = Number(document.getElementById("food").value);
 let days = Number(document.getElementById("days").value);
 
-let total = flight + (hotel*nights) + ticket + (food*days);
+let total = flight + (hotel * nights) + ticket + (food * days);
 
 document.getElementById("total").innerHTML = "$" + total;
 
 }
 
+function setCityCost(){
+
+let city = document.getElementById("city").value;
+
+if(city === "newyork"){
+document.getElementById("flight").value = 900;
+document.getElementById("hotel").value = 350;
+document.getElementById("ticket").value = 250;
+document.getElementById("food").value = 120;
+}
+
+if(city === "losangeles"){
+document.getElementById("flight").value = 850;
+document.getElementById("hotel").value = 300;
+document.getElementById("ticket").value = 240;
+document.getElementById("food").value = 110;
+}
+
+if(city === "mexicocity"){
+document.getElementById("flight").value = 500;
+document.getElementById("hotel").value = 120;
+document.getElementById("ticket").value = 180;
+document.getElementById("food").value = 60;
+}
+
+if(city === "toronto"){
+document.getElementById("flight").value = 700;
+document.getElementById("hotel").value = 280;
+document.getElementById("ticket").value = 230;
+document.getElementById("food").value = 100;
+}
+
+if(city === "atlanta"){
+document.getElementById("flight").value = 750;
+document.getElementById("hotel").value = 250;
+document.getElementById("ticket").value = 220;
+document.getElementById("food").value = 90;
+}
+
+}
+
 </script>
 
-</body>
 
-</html>
+
+
