@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>World Cup San Francisco Travel Cost 2026 | Budget Calculator</title>
+
+<meta name="description" content="Estimate the cost of attending the FIFA World Cup 2026 in San Francisco including flights, hotels, match tickets and daily expenses.">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#0b1f3a;
+color:white;
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.container{
+max-width:850px;
+margin:auto;
+background:white;
+color:#333;
+padding:30px;
+border-radius:12px;
+margin-bottom:30px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:8px;
+background:#23b45d;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.result{
+font-size:30px;
+text-align:center;
+margin-top:20px;
+}
+
+.email-box{
+text-align:center;
+}
+
+.products{
+display:grid;
+gap:20px;
+}
+
+.product{
+border:1px solid #ddd;
+padding:20px;
+border-radius:10px;
+}
+
+.premium{
+border:3px solid #23b45d;
+text-align:center;
+}
+
+.ads{
+background:#f1f1f1;
+padding:30px;
+text-align:center;
+margin:30px 0;
+}
+
+.booking button{
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>World Cup San Francisco Travel Cost</h1>
+
+<p>Estimate the cost of attending the FIFA World Cup 2026 in San Francisco.</p>
+
+</div>
+
+
+<div class="container">
+
+<h2>San Francisco World Cup Budget Calculator</h2>
+
+<input id="flight" placeholder="Flights ($)">
+<input id="hotel" placeholder="Hotel per night ($)">
+<input id="nights" placeholder="Number of nights">
+<input id="ticket" placeholder="Match tickets ($)">
+<input id="food" placeholder="Food per day ($)">
+<input id="days" placeholder="Days">
+
+<button onclick="calculate()">Calculate Budget</button>
+
+<div class="result" id="result">$0</div>
+
+</div>
+
+
+<div class="container">
+
+<h2>Travel Tips for San Francisco World Cup</h2>
+
+<p>
+San Francisco will host matches during the FIFA World Cup 2026. Fans traveling to San Francisco should carefully plan their travel budget including flights, hotels, match tickets and daily expenses.
+</p>
+
+<p>
+Booking accommodation early can help reduce travel costs, especially near stadium areas where demand will be very high during the tournament.
+</p>
+
+</div>
+
+
+<div class="container email-box">
+
+<h2>Free World Cup Budget Guide</h2>
+
+<p>Join our email list and get our free World Cup travel planning guide.</p>
+
+<input placeholder="Enter your email">
+
+<button>Get Free Guide</button>
+
+</div>
+
+
+<div class="container premium">
+
+<h2>Premium World Cup Planner</h2>
+
+<p>
+
+✔ Advanced travel planner  
+✔ Match schedule tracker  
+✔ Premium budget tools  
+✔ Stadium travel guides  
+
+</p>
+
+<h3>$9 / month</h3>
+
+<button>Upgrade to Premium</button>
+
+</div>
+
+
+<div class="container">
+
+<h2>World Cup Digital Products</h2>
+
+<div class="products">
+
+<div class="product">
+
+<h3>World Cup Travel Planner</h3>
+
+<p>Complete planning toolkit for fans attending the tournament.</p>
+
+<button>Buy Now</button>
+
+</div>
+
+<div class="product">
+
+<h3>World Cup Budget Spreadsheet</h3>
+
+<p>Track travel expenses and ticket costs easily.</p>
+
+<button>Download</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="container booking">
+
+<h2>Book Your Trip</h2>
+
+<button>Find Flights</button>
+<button>Find Hotels</button>
+<button>Buy Match Tickets</button>
+
+</div>
+
+
+<div class="container ads">
+
+Google AdSense Ad Placement
+
+</div>
+
+
+<script>
+
+function calculate(){
+
+let flight=parseFloat(document.getElementById("flight").value)||0
+let hotel=parseFloat(document.getElementById("hotel").value)||0
+let nights=parseFloat(document.getElementById("nights").value)||0
+let ticket=parseFloat(document.getElementById("ticket").value)||0
+let food=parseFloat(document.getElementById("food").value)||0
+let days=parseFloat(document.getElementById("days").value)||0
+
+let total=flight+(hotel*nights)+ticket+(food*days)
+
+document.getElementById("result").innerHTML="$"+total
+
+}
+
+</script>
+
+</body>
+
+</html>
