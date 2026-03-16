@@ -25,7 +25,18 @@ color:black;
 padding:25px;
 border-radius:12px;
 }
+.city-links{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:10px;
+}
 
+.city-links a{
+text-decoration:none;
+color:#2563eb;
+font-weight:500;
+}
 input,select{
 width:100%;
 padding:12px;
@@ -342,6 +353,7 @@ document.getElementById("result").innerHTML = "$" + total;
 }
 
 </script>
-
+<div id="internal-links"></div>
+<script src="/Worldcuptravelcalculator/links.js"></script>
 </body>
 </html>
