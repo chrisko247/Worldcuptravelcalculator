@@ -4,88 +4,52 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>World Cup 2026 Travel Cost by Country | Trip Budget Calculator</title>
-
-<meta name="description" content="Calculate the total cost of attending the FIFA World Cup 2026 from any country. Estimate flights, hotels, tickets and travel budget instantly.">
+<title>World Cup 2026 Travel Cost Calculator</title>
 
 <style>
 
 body{
-font-family:Arial, Helvetica, sans-serif;
+font-family: Arial, sans-serif;
 background:#0b1e3c;
+color:white;
 margin:0;
 padding:20px;
-color:white;
 }
 
 .container{
-max-width:650px;
+max-width:600px;
 margin:auto;
 background:white;
 color:black;
-padding:30px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
+padding:25px;
+border-radius:10px;
 }
 
-h1{
-text-align:center;
-margin-bottom:30px;
-}
-
-label{
-font-weight:bold;
-margin-top:10px;
-display:block;
-}
-
-select,input{
+input,select{
 width:100%;
-padding:12px;
-margin-top:6px;
-margin-bottom:14px;
+padding:10px;
+margin:8px 0;
 font-size:16px;
-border-radius:6px;
-border:1px solid #ccc;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:12px;
 background:#27ae60;
 border:none;
 color:white;
 font-size:18px;
-border-radius:8px;
+border-radius:6px;
 cursor:pointer;
 }
 
-button:hover{
-background:#219150;
-}
-
 .result{
+font-size:28px;
 text-align:center;
-font-size:34px;
 margin-top:20px;
 font-weight:bold;
-}
-
-.content{
-max-width:700px;
-margin:auto;
-margin-top:40px;
-line-height:1.6;
-}
-
-a{
-color:#2ecc71;
-}
-
-ul{
-padding-left:20px;
 }
 
 </style>
@@ -95,11 +59,9 @@ padding-left:20px;
 
 <body>
 
-<h1>World Cup 2026 Travel Cost Calculator</h1>
+<h1 style="text-align:center;">World Cup 2026 Trip Cost Calculator</h1>
 
 <div class="container">
-
-<h2>Calculate Trip Cost by Country</h2>
 
 <label>Your Country</label>
 <select id="country"></select>
@@ -127,93 +89,38 @@ padding-left:20px;
 </select>
 
 <label>Flight Cost ($)</label>
-<input id="flight" placeholder="Example: 900">
+<input id="flight">
 
 <label>Hotel Per Night ($)</label>
-<input id="hotel" placeholder="Example: 180">
+<input id="hotel">
 
 <label>Number of Nights</label>
-<input id="nights" placeholder="Example: 5">
+<input id="nights">
 
 <label>Match Tickets ($)</label>
-<input id="tickets" placeholder="Example: 450">
+<input id="tickets">
 
-<label>Food Per Day ($)</label>
-<input id="food" placeholder="Example: 60">
-
-<label>Days</label>
-<input id="days" placeholder="Example: 5">
-
-<button onclick="calculate()">Calculate Budget</button>
+<button onclick="calculate()">Calculate Total Cost</button>
 
 <div class="result" id="result">$0</div>
 
 </div>
 
 
-<div class="content">
-
-<h2>How Much Does It Cost To Attend the World Cup 2026?</h2>
-
-<p>
-The cost of attending the FIFA World Cup 2026 depends on flights, accommodation,
-ticket category, food, and the length of stay.
-Most international fans spend between $3,000 and $7,000 for the full trip.
-</p>
-
-<p>
-Use the calculator above to estimate your exact travel budget based on your country
-and the host city you want to visit.
-</p>
-
-
-<h3>World Cup Travel Cost by City</h3>
-
-<ul>
-
-<li><a href="/world-cup-dallas-travel-cost">Dallas World Cup Travel Cost</a></li>
-<li><a href="/world-cup-miami-travel-cost">Miami World Cup Travel Cost</a></li>
-<li><a href="/world-cup-los-angeles-travel-cost">Los Angeles World Cup Travel Cost</a></li>
-<li><a href="/world-cup-atlanta-travel-cost">Atlanta World Cup Travel Cost</a></li>
-<li><a href="/world-cup-boston-travel-cost">Boston World Cup Travel Cost</a></li>
-<li><a href="/world-cup-toronto-travel-cost">Toronto World Cup Travel Cost</a></li>
-
-</ul>
-
-</div>
-
-
-
 <script>
 
 const countries = [
-
-"Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria",
-"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan",
-"Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon",
-"Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica",
-"Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt",
-"El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon",
-"Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana",
-"Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel",
-"Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos",
-"Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi",
-"Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova",
-"Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand",
-"Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Panama",
-"Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda",
-"Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe",
-"Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands",
-"Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland",
-"Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia",
-"Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States",
-"Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
-
+"Afghanistan","Albania","Algeria","Argentina","Australia","Austria","Bangladesh","Belgium","Brazil","Canada",
+"Chile","China","Colombia","Denmark","Egypt","Finland","France","Germany","Ghana","Greece","India","Indonesia",
+"Iran","Iraq","Ireland","Israel","Italy","Japan","Kenya","Malaysia","Mexico","Morocco","Netherlands","New Zealand",
+"Nigeria","Norway","Pakistan","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Saudi Arabia",
+"Singapore","South Africa","South Korea","Spain","Sweden","Switzerland","Thailand","Turkey","Ukraine",
+"United Arab Emirates","United Kingdom","United States","Vietnam","Zimbabwe"
 ];
 
-const countryDropdown = document.getElementById("country");
+const dropdown = document.getElementById("country");
 
-countries.forEach(country => {
+countries.forEach(function(country){
 
 let option = document.createElement("option");
 
@@ -221,28 +128,25 @@ option.value = country;
 
 option.text = country;
 
-countryDropdown.appendChild(option);
+dropdown.appendChild(option);
 
 });
 
-
-
 function calculate(){
 
-let flight = Number(document.getElementById("flight").value) || 0
-let hotel = Number(document.getElementById("hotel").value) || 0
-let nights = Number(document.getElementById("nights").value) || 0
-let tickets = Number(document.getElementById("tickets").value) || 0
-let food = Number(document.getElementById("food").value) || 0
-let days = Number(document.getElementById("days").value) || 0
+let flight = Number(document.getElementById("flight").value) || 0;
+let hotel = Number(document.getElementById("hotel").value) || 0;
+let nights = Number(document.getElementById("nights").value) || 0;
+let tickets = Number(document.getElementById("tickets").value) || 0;
 
-let total = flight + (hotel * nights) + tickets + (food * days)
+let total = flight + (hotel * nights) + tickets;
 
-document.getElementById("result").innerHTML = "$" + total
+document.getElementById("result").innerHTML = "$" + total;
 
 }
 
 </script>
+
 
 </body>
 </html>
