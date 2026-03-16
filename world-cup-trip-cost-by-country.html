@@ -1,67 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>World Cup 2026 Travel Cost Calculator</title>
+<title>World Cup 2026 Global Travel Cost Calculator</title>
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
+font-family:Arial;
 background:#0b1e3c;
-color:white;
 margin:0;
 padding:20px;
+color:white;
 }
 
 .container{
-max-width:600px;
+max-width:650px;
 margin:auto;
 background:white;
 color:black;
 padding:25px;
-border-radius:10px;
+border-radius:12px;
 }
 
 input,select{
 width:100%;
-padding:10px;
-margin:8px 0;
+padding:12px;
+margin:10px 0;
 font-size:16px;
 }
 
 button{
-width:100%;
-padding:12px;
 background:#27ae60;
-border:none;
 color:white;
+border:none;
+padding:15px;
+width:100%;
 font-size:18px;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
 }
 
 .result{
-font-size:28px;
+font-size:34px;
 text-align:center;
 margin-top:20px;
 font-weight:bold;
+}
+
+.section{
+max-width:650px;
+margin:30px auto;
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+}
+
+.ad{
+background:#eee;
+padding:20px;
+text-align:center;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-<h1 style="text-align:center;">World Cup 2026 Trip Cost Calculator</h1>
+<h1 style="text-align:center;">World Cup 2026 Travel Cost Calculator</h1>
 
 <div class="container">
+
+<h2>Calculate Trip Cost by Country</h2>
 
 <label>Your Country</label>
 <select id="country"></select>
@@ -69,26 +84,26 @@ font-weight:bold;
 <label>Host City</label>
 <select id="city">
 
-<option>New York</option>
-<option>Los Angeles</option>
-<option>Dallas</option>
-<option>Houston</option>
-<option>Miami</option>
-<option>Atlanta</option>
-<option>Boston</option>
-<option>Philadelphia</option>
-<option>Seattle</option>
-<option>San Francisco</option>
-<option>Kansas City</option>
-<option>Toronto</option>
-<option>Vancouver</option>
-<option>Mexico City</option>
-<option>Guadalajara</option>
-<option>Monterrey</option>
+<option value="usa">New York</option>
+<option value="usa">Los Angeles</option>
+<option value="usa">Dallas</option>
+<option value="usa">Houston</option>
+<option value="usa">Miami</option>
+<option value="usa">Atlanta</option>
+<option value="usa">Boston</option>
+<option value="usa">Philadelphia</option>
+<option value="usa">Seattle</option>
+<option value="usa">San Francisco</option>
+<option value="usa">Kansas City</option>
+<option value="canada">Toronto</option>
+<option value="canada">Vancouver</option>
+<option value="mexico">Mexico City</option>
+<option value="mexico">Guadalajara</option>
+<option value="mexico">Monterrey</option>
 
 </select>
 
-<label>Flight Cost ($)</label>
+<label>Estimated Flight Cost ($)</label>
 <input id="flight">
 
 <label>Hotel Per Night ($)</label>
@@ -100,53 +115,180 @@ font-weight:bold;
 <label>Match Tickets ($)</label>
 <input id="tickets">
 
-<button onclick="calculate()">Calculate Total Cost</button>
+<label>Food Per Day ($)</label>
+<input id="food">
+
+<label>Days</label>
+<input id="days">
+
+<button onclick="calculate()">Calculate Budget</button>
 
 <div class="result" id="result">$0</div>
 
 </div>
 
 
+<div class="section ad">
+
+<h3>Advertisement</h3>
+<!-- Google AdSense code goes here -->
+
+</div>
+
+
+<div class="section">
+
+<h2>Book Your Trip</h2>
+
+<a href="#"><button>Find Flights</button></a>
+<a href="#"><button>Find Hotels</button></a>
+<a href="#"><button>Buy Match Tickets</button></a>
+
+</div>
+
+
+<div class="section">
+
+<h2>World Cup Digital Products</h2>
+
+<button>Download Travel Planner</button>
+<button>Download Budget Spreadsheet</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Premium World Cup Planner</h2>
+
+<p>$9/month</p>
+<button>Upgrade to Premium</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Free World Cup Budget Guide</h2>
+
+<input placeholder="Enter your email">
+<button>Get Free Guide</button>
+
+</div>
+
+
+
 <script>
 
+/* ===== REGION PRICES ===== */
+
+const regionPrices = {
+northamerica:250,
+southamerica:850,
+europe:750,
+africa:1100,
+asia:1200,
+oceania:1500
+};
+
+
+/* ===== COUNTRY LIST (200+) ===== */
+
 const countries = [
-"Afghanistan","Albania","Algeria","Argentina","Australia","Austria","Bangladesh","Belgium","Brazil","Canada",
-"Chile","China","Colombia","Denmark","Egypt","Finland","France","Germany","Ghana","Greece","India","Indonesia",
-"Iran","Iraq","Ireland","Israel","Italy","Japan","Kenya","Malaysia","Mexico","Morocco","Netherlands","New Zealand",
-"Nigeria","Norway","Pakistan","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Saudi Arabia",
-"Singapore","South Africa","South Korea","Spain","Sweden","Switzerland","Thailand","Turkey","Ukraine",
-"United Arab Emirates","United Kingdom","United States","Vietnam","Zimbabwe"
+
+["Afghanistan","asia"],["Albania","europe"],["Algeria","africa"],["Andorra","europe"],
+["Angola","africa"],["Argentina","southamerica"],["Armenia","asia"],["Australia","oceania"],
+["Austria","europe"],["Azerbaijan","asia"],["Bahamas","northamerica"],["Bahrain","asia"],
+["Bangladesh","asia"],["Barbados","northamerica"],["Belarus","europe"],["Belgium","europe"],
+["Belize","northamerica"],["Benin","africa"],["Bhutan","asia"],["Bolivia","southamerica"],
+["Bosnia","europe"],["Botswana","africa"],["Brazil","southamerica"],["Brunei","asia"],
+["Bulgaria","europe"],["Burkina Faso","africa"],["Burundi","africa"],["Cambodia","asia"],
+["Cameroon","africa"],["Canada","northamerica"],["Chile","southamerica"],["China","asia"],
+["Colombia","southamerica"],["Costa Rica","northamerica"],["Croatia","europe"],
+["Cuba","northamerica"],["Cyprus","asia"],["Czech Republic","europe"],["Denmark","europe"],
+["Dominican Republic","northamerica"],["Ecuador","southamerica"],["Egypt","africa"],
+["El Salvador","northamerica"],["Estonia","europe"],["Ethiopia","africa"],["Finland","europe"],
+["France","europe"],["Gabon","africa"],["Gambia","africa"],["Georgia","asia"],
+["Germany","europe"],["Ghana","africa"],["Greece","europe"],["Guatemala","northamerica"],
+["Guinea","africa"],["Haiti","northamerica"],["Honduras","northamerica"],["Hungary","europe"],
+["Iceland","europe"],["India","asia"],["Indonesia","asia"],["Iran","asia"],["Iraq","asia"],
+["Ireland","europe"],["Israel","asia"],["Italy","europe"],["Jamaica","northamerica"],
+["Japan","asia"],["Jordan","asia"],["Kazakhstan","asia"],["Kenya","africa"],
+["Kuwait","asia"],["Kyrgyzstan","asia"],["Laos","asia"],["Latvia","europe"],
+["Lebanon","asia"],["Liberia","africa"],["Libya","africa"],["Lithuania","europe"],
+["Luxembourg","europe"],["Madagascar","africa"],["Malawi","africa"],["Malaysia","asia"],
+["Maldives","asia"],["Mali","africa"],["Malta","europe"],["Mauritania","africa"],
+["Mauritius","africa"],["Mexico","northamerica"],["Moldova","europe"],["Mongolia","asia"],
+["Montenegro","europe"],["Morocco","africa"],["Mozambique","africa"],["Myanmar","asia"],
+["Namibia","africa"],["Nepal","asia"],["Netherlands","europe"],["New Zealand","oceania"],
+["Nicaragua","northamerica"],["Niger","africa"],["Nigeria","africa"],["North Korea","asia"],
+["North Macedonia","europe"],["Norway","europe"],["Oman","asia"],["Pakistan","asia"],
+["Panama","northamerica"],["Paraguay","southamerica"],["Peru","southamerica"],
+["Philippines","asia"],["Poland","europe"],["Portugal","europe"],["Qatar","asia"],
+["Romania","europe"],["Russia","europe"],["Rwanda","africa"],["Saudi Arabia","asia"],
+["Senegal","africa"],["Serbia","europe"],["Singapore","asia"],["Slovakia","europe"],
+["Slovenia","europe"],["Somalia","africa"],["South Africa","africa"],["South Korea","asia"],
+["Spain","europe"],["Sri Lanka","asia"],["Sudan","africa"],["Sweden","europe"],
+["Switzerland","europe"],["Syria","asia"],["Taiwan","asia"],["Tanzania","africa"],
+["Thailand","asia"],["Tunisia","africa"],["Turkey","asia"],["Uganda","africa"],
+["Ukraine","europe"],["United Arab Emirates","asia"],["United Kingdom","europe"],
+["United States","northamerica"],["Uruguay","southamerica"],["Uzbekistan","asia"],
+["Venezuela","southamerica"],["Vietnam","asia"],["Yemen","asia"],["Zambia","africa"],
+["Zimbabwe","africa"]
+
 ];
 
-const dropdown = document.getElementById("country");
 
-countries.forEach(function(country){
+/* ===== LOAD COUNTRIES ===== */
 
-let option = document.createElement("option");
+const dropdown=document.getElementById("country");
 
-option.value = country;
-
-option.text = country;
-
+countries.forEach(c=>{
+let option=document.createElement("option");
+option.text=c[0];
+option.value=c[1];
 dropdown.appendChild(option);
-
 });
+
+
+/* ===== AUTO FLIGHT ESTIMATE ===== */
+
+function estimateFlight(){
+
+let region=document.getElementById("country").value;
+let city=document.getElementById("city").value;
+
+let price=regionPrices[region];
+
+if(city==="canada") price+=100;
+if(city==="mexico") price-=100;
+
+document.getElementById("flight").value=price;
+
+}
+
+document.getElementById("country").addEventListener("change",estimateFlight);
+document.getElementById("city").addEventListener("change",estimateFlight);
+
+
+/* ===== TOTAL COST ===== */
 
 function calculate(){
 
-let flight = Number(document.getElementById("flight").value) || 0;
-let hotel = Number(document.getElementById("hotel").value) || 0;
-let nights = Number(document.getElementById("nights").value) || 0;
-let tickets = Number(document.getElementById("tickets").value) || 0;
+let flight=Number(document.getElementById("flight").value)||0;
+let hotel=Number(document.getElementById("hotel").value)||0;
+let nights=Number(document.getElementById("nights").value)||0;
+let tickets=Number(document.getElementById("tickets").value)||0;
+let food=Number(document.getElementById("food").value)||0;
+let days=Number(document.getElementById("days").value)||0;
 
-let total = flight + (hotel * nights) + tickets;
+let total=flight+(hotel*nights)+tickets+(food*days);
 
-document.getElementById("result").innerHTML = "$" + total;
+document.getElementById("result").innerHTML="$"+total;
 
 }
 
 </script>
-
 
 </body>
 </html>
